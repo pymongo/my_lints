@@ -1,0 +1,16 @@
+error: our company forbid recursive code, Reference: company_code_style.pdf, page 17
+  --> $DIR/my_lint_recursive_code.rs:6:5
+   |
+LL |     fib(n-1) + fib(n-2)
+   |     ^^^^^^^^
+   |
+   = note: `-D my-lint-recursive-code` implied by `-D warnings`
+
+error: our company forbid recursive code, Reference: company_code_style.pdf, page 17
+  --> $DIR/my_lint_recursive_code.rs:6:16
+   |
+LL |     fib(n-1) + fib(n-2)
+   |                ^^^^^^^^
+
+error: aborting due to 2 previous errors
+
