@@ -1,0 +1,2 @@
+fn feature() {}
+fn main() {}

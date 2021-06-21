@@ -1,21 +1,18 @@
 [package]
-name = "path_separator_in_string_literal"
-version = "0.1.3"
-authors = ["Samuel E. Moelius III <sam@moeli.us>"]
-description = "A lint to check for path separators in string literals"
+name = "my_lints"
+version = "0.1.0"
 edition = "2018"
-publish = false
 
 [lib]
 crate-type = ["cdylib"]
 
 [dependencies]
+dylint_linting = "*"
 clippy_utils = { git = "https://github.com/rust-lang/rust-clippy", rev = "586a99348c6a6f5309e82b340193067b7d76e37c"}
-if_chain = "1.0.1"
-
-dylint_linting = { path = "../../utils/linting" }
 
 [dev-dependencies]
-dylint_testing = { path = "../../utils/testing", features = ["dylint_driver_local"] }
+dylint_testing = "*"
 
-[workspace]
+[package.metadata.rust-analyzer]
+rustc_private = true
+excludeDirs = "ui"

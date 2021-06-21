@@ -1,30 +1,26 @@
 #![feature(rustc_private)]
-#![recursion_limit = "256"]
-#![warn(unused_extern_crates)]
+extern crate rustc_ast;
+extern crate rustc_lint;
+extern crate rustc_session;
+extern crate rustc_span;
 
 dylint_linting::dylint_library!();
 
-extern crate rustc_ast;
-extern crate rustc_errors;
-extern crate rustc_hir;
-extern crate rustc_lint;
-extern crate rustc_session;
-
-mod path_separator_in_string_literal;
+mod my_lint_function_name_is_feature;
 
 #[no_mangle]
 pub fn register_lints(_sess: &rustc_session::Session, lint_store: &mut rustc_lint::LintStore) {
     lint_store
-        .register_lints(&[path_separator_in_string_literal::PATH_SEPARATOR_IN_STRING_LITERAL]);
-    lint_store.register_late_pass(|| {
-        Box::new(path_separator_in_string_literal::PathSeparatorInStringLiteral)
+        .register_lints(&[my_lint_function_name_is_feature::MY_LINT_FUNCTION_NAME_IS_FEATURE]);
+    lint_store.register_early_pass(|| {
+        Box::new(my_lint_function_name_is_feature::MyLintFunctionNameIsFeature)
     });
 }
 
 #[test]
-fn ui() {
+fn ui_test() {
     dylint_testing::ui_test(
         env!("CARGO_PKG_NAME"),
-        &std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("ui"),
+        &std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("ui_tests"),
     );
 }

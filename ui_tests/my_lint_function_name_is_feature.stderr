@@ -1,0 +1,10 @@
+error: fn feature() generate by vscode-ra is not allow to commit
+  --> $DIR/my_lint_function_name_is_feature.rs:1:1
+   |
+LL | fn feature() {}
+   | ^^^^^^^^^^^^^^^
+   |
+   = note: `-D my-lint-function-name-is-feature` implied by `-D warnings`
+
+error: aborting due to previous error
+
