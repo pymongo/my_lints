@@ -7,12 +7,11 @@ edition = "2018"
 crate-type = ["cdylib"]
 
 [dependencies]
-dylint_linting = "*"
-clippy_utils = { git = "https://github.com/rust-lang/rust-clippy", rev = "586a99348c6a6f5309e82b340193067b7d76e37c"}
+dylint_linting = "0.1"
+clippy_utils = { git = "https://github.com/rust-lang/rust-clippy", rev = "ae72f1adb9cbf16141f880e9e955723a5fdabf00"}
 
 [dev-dependencies]
-dylint_testing = "*"
+dylint_testing = "0.1"
 
 [package.metadata.rust-analyzer]
 rustc_private = true
-excludeDirs = "ui"
