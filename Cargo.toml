@@ -1,3 +1,4 @@
+# dylint demo
 [package]
 name = "my_lints"
 version = "0.1.0"
